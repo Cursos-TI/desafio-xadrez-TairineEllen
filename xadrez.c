@@ -27,53 +27,83 @@
     // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
     // Inclua o uso de continue e break dentro dos loops.
 
+void moverTorre(int casas) {
+    if (casas > 0) {
+        printf("Cima\n");
+        moverTorre(casas - 1);
+    }
+}
+
+void moverBispo(int casas) {
+    if(casas > 0) {
+        for(int i = 1; i <= 1; i++) {
+            for(int j = 1; j <= 1; j++) {
+                printf("Cima, ");
+            }
+            printf("Direita\n");
+        }
+        moverBispo(casas - 1);
+    }
+}
+
+
+void moverRainha(int casas) {
+    if (casas > 0) {
+        printf("Esquerda\n");
+        moverTorre(casas - 1);
+    }
+}
+
+void moverCavalo(int horizontal, int vertical, int opcao) {
+        for(int j = 1, k = 1; j <= horizontal || k <= vertical; j++, k++) {
+        printf("Cima\n");
+        
+        if(k == vertical) {
+            switch(opcao) {
+                case 1:
+                    printf("Esquerda\n");
+                    break;
+                case 2:
+                    printf("Direita\n");
+                    break;
+                default:
+                    printf("Opcao invalida\n");
+                    break;
+            } 
+        }
+    }
+}
+
 int main() {
     // Torre andando 5 casas para cima
 
     printf("========== Torre ==========\n");
-
-    int i = 1;
-
-    while (i <= 5) {
-        printf("Cima\n");
-        i++;
-    }
-
+    moverTorre(5);
     printf("\n");
 
     // Bispo andando 5 casas para cima e esquerda
 
     printf("========== Bispo ==========\n");
-
-    int j = 1;
-    do {
-        
-        printf("Cima, Esquerda\n");
-        j++;
-    } while (j <= 5);
-
+    moverBispo(5);
     printf("\n");
 
     // Rainha andando 8 casas para a esquerda
 
-    printf("========== Rainha ==========\n");
-    
-    for (int i = 1; i <= 8; i++) {
-        printf("Esquerda\n");
-    }
-
+    printf("========== Rainha ==========\n");    
+    moverRainha(8);
     printf("\n");
 
     printf("========== Cavalo ==========\n");
 
-    for (int i = 0; i < 1; i++) {
-        int j = 1;
-        while (j<= 2) {
-            printf("Cima\n");
-            j++;
+    int cavaloHorizontal = 1, cavaloVertical = 2, opcao;
+    printf("### Selecione se o cavalo deve ir para a esquerda ou direita:\n");
+    printf("1. Esquerda\n");
+    printf("2. Direita\n");
+    scanf("%d", &opcao);
+    printf("\n");
 
-        }
-    } printf("Direita\n");  
+    moverCavalo(cavaloHorizontal, cavaloVertical, opcao);
+
 
     return 0;
 }
