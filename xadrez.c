@@ -64,8 +64,16 @@ int main() {
 
     printf("\n");
 
+    printf("========== Cavalo ==========\n");
 
-    
+    for (int i = 0; i < 1; i++) {
+        int j = 1;
+        while (j<= 2) {
+            printf("Cima\n");
+            j++;
+
+        }
+    } printf("Direita\n");  
 
     return 0;
 }
